@@ -1,8 +1,10 @@
 Install NGINX
+
 Yum –y install epel-release 
 Yum –y install nginx 
 
-Install PHP for v7 
+Install PHP for v7
+
 yum -y install wget yum-utils 
 wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm 
 wget -q https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
@@ -14,8 +16,8 @@ Install mariaDB
 Yum –y install mariadb mariadb-server 
 
 CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci; 
-CREATE USER wordpressuser@localhost IDENTIFIED BY 'asdf1234*'; 
-GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'asdf1234*'; 
+CREATE USER wordpressuser@localhost IDENTIFIED BY 'password*'; 
+GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'password*'; 
 FLUSH PRIVILEGES; 
 
 GET WORDPRESS 
