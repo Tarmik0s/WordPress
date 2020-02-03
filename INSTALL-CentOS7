@@ -17,3 +17,23 @@ CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 CREATE USER wordpressuser@localhost IDENTIFIED BY 'asdf1234*'; 
 GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'asdf1234*'; 
 FLUSH PRIVILEGES; 
+
+GET WORDPRESS 
+
+yum -yinstall unzip net-tools php-gd php-mysql
+wget http://wordpress.org/latest.zip 
+wget https://wordpress.org/wordpress-5.1.1.tar.gz --no-check-certificate 
+unzip -q latest.zip -d /var/www/html/ 
+chown -R nginx:nginx /var/www/html/wordpress 
+chmod -R 755 /var/www/html/wordpress 
+mkdir -p /var/www/html/wordpress/wp-content/uploads 
+chown -R :nginx /var/www/html/wordpress/wp-content/uploads 
+cp wp-config-sample.php wp-config.php 
+
+vi wp-config.php 
+
+define('DB_NAME', 'wordpress');  
+/** MySQL database username */ 
+define('DB_USER', 'wordpressuser');  
+/** MySQL database password */ 
+define('DB_PASSWORD', 'wordpresspw*'); 
